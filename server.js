@@ -14,7 +14,7 @@ import inventory from './routes/inventory.js';
 
 dotenv.config();  // Load environment variables from .env file
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 10000;  // Use PORT from environment or default to 8000
 
 // Helper to get the current directory path (__dirname equivalent in ES modules)
 const __filename = fileURLToPath(import.meta.url);
@@ -47,6 +47,6 @@ app.use(notFound);  // Handle 404s
 app.use(errorHandler);  // Handle other errors
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running on http://0.0.0.0:${port}`);
 });
